@@ -8,18 +8,29 @@ public class scriptCangrejo : MonoBehaviour
     public Camera camera;
     public ActiveNarrMarino nar;
     public AudioMarino audios;
-
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate;
     //Imagen En Pantalla
     public Image slot;
     public Sprite img;
     [SerializeField]
     float tiempoDesaparicion = 10f;
+    //waypoints
+    public Transform[] waypoints;
+    public int speed;
+    private int waypointIndex;
+    private float dist;
+    public bool isPatrollin;
 
     Animator animator;
 
     void Start()
     {
-      animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+        isPatrollin = false;
     }
   
     private void CrabNarration()
@@ -34,9 +45,49 @@ public class scriptCangrejo : MonoBehaviour
             Debug.Log("Paró narración");
             ClickAction();
         }
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
 
-
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
+    }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
+    }
+    public void AllowAction()
+    {
+        _move._speed = 10;
+        _rotate.speed = 200;
+        rotateSmooth.speed = 200;
     }
 
     //Funcion al hacer click al animal
@@ -53,6 +104,9 @@ public class scriptCangrejo : MonoBehaviour
                     Debug.Log("el cangrejo camina");
                     animator.SetBool("semueve", true);
                     CrabNarration();
+                    LimitAction();
+                    Invoke("AllowAction", 18f);
+                    isPatrollin = true;
 
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
                     slot.sprite = img;
