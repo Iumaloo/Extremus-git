@@ -13,7 +13,7 @@ public class scriptAvispa : MonoBehaviour
     private float dist;
     public int speed;
     public bool isPatrollin;
-
+    Vector3 tmp;
 
     void Awake()
     {
@@ -82,8 +82,17 @@ public class scriptAvispa : MonoBehaviour
                     animator.SetBool("semueve", true);
                     WaspNarration();
                     isPatrollin = true;
+                    IncreaseSize();
                 }
             }
         }
+    }
+    void IncreaseSize()
+    {
+        tmp = transform.localScale;
+        tmp.x += 7f;
+        tmp.y += 7f;
+        tmp.z += 7f;
+        transform.localScale = tmp;
     }
 }
