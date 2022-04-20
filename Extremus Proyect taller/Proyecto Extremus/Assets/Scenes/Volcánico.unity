@@ -12001,8 +12001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAudio: {fileID: 1508173454}
   narrVol: {fileID: 8300000, guid: a653e7b2d4b8c824aacd0f517c8421db, type: 3}
-  narrSpider: {fileID: 8300000, guid: 73eb23ea0fb19004188d8a3ab5e22436, type: 3}
-  narrBird: {fileID: 8300000, guid: 2df55358038edba4295e005e18bd5d81, type: 3}
+  narrSpider: {fileID: 8300000, guid: 47f76c57142dad94abc1dee66fa66a82, type: 3}
+  narrBird: {fileID: 8300000, guid: aac972cc285e7ae4885674273ad0c73d, type: 3}
   narrSnail: {fileID: 8300000, guid: 23c810099b7ae3e4b9eac7932e645da9, type: 3}
   narrTar: {fileID: 8300000, guid: c87479b231d12b84b9aa05699676727b, type: 3}
   isVol: 0

@@ -6163,11 +6163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAudio: {fileID: 1948648116}
-  narrMarino: {fileID: 8300000, guid: 8e0303b03b816114ba21c04d4bd123f7, type: 3}
-  narrBlobFish: {fileID: 8300000, guid: 3893ec0d546443f4ab4bd9d9d3320f31, type: 3}
+  narrMarino: {fileID: 8300000, guid: e3e75fb461c050b48a6d62f0d7c48163, type: 3}
+  narrBlobFish: {fileID: 8300000, guid: dec4148cd0764c14f89a8905f7794ece, type: 3}
   narrGusano: {fileID: 8300000, guid: 429748414b2c43449bd5b69e7ccb69b3, type: 3}
   narrCalamar: {fileID: 8300000, guid: 2df55358038edba4295e005e18bd5d81, type: 3}
-  narrCangrejo: {fileID: 8300000, guid: 9bff58b38bf357443b6e175874e05812, type: 3}
+  narrCangrejo: {fileID: 8300000, guid: a1a06126a2bae924eb8e022ef0e0b213, type: 3}
   isYellin: 0
 --- !u!1001 &1961821393
 PrefabInstance:
