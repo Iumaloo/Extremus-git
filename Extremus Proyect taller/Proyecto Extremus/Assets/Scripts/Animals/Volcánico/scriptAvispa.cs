@@ -76,7 +76,7 @@ public class scriptAvispa : MonoBehaviour
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetA>() != null)
+                if (hitInfo.collider.gameObject.GetComponent<TargetP>() != null)
                 {
                     Debug.Log("La araña camina");
                     animator.SetBool("semueve", true);
@@ -90,9 +90,9 @@ public class scriptAvispa : MonoBehaviour
     void IncreaseSize()
     {
         tmp = transform.localScale;
-        tmp.x += 7f;
-        tmp.y += 7f;
-        tmp.z += 7f;
+        tmp.x += 4f;
+        tmp.y += 4f;
+        tmp.z += 4f;
         transform.localScale = tmp;
     }
 }
