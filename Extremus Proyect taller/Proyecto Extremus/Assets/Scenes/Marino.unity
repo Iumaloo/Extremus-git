@@ -1589,6 +1589,10 @@ MonoBehaviour:
   - {fileID: 355990612}
   - {fileID: 355990612}
   speed: 1
+  slot: {fileID: 424551368}
+  img: {fileID: 21300000, guid: ec7dd7448d52cb046ab3566124aa971f, type: 3}
+  tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: 3cacb96f0d4517e4ebb0b5f68f1013a8, type: 2}
   isPatrollin: 0
 --- !u!23 &436504071
 MeshRenderer:
@@ -5899,6 +5903,10 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1798361389}
   - {fileID: 166450581}
+  slot: {fileID: 424551368}
+  img: {fileID: 21300000, guid: d6ced80f29f9a6e44b7fa845bc884f60, type: 3}
+  tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: 1ae67760296484b44a5811804616eeb9, type: 2}
   speed: 5
   isPatrollin: 0
 --- !u!23 &1614181467

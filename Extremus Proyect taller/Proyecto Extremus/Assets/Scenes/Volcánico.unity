@@ -1590,6 +1590,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 183964068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &191670775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3092282068216570077, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+    type: 3}
+  m_PrefabInstance: {fileID: 246443861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &197890137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10581,18 +10593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
---- !u!114 &1180382908 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5682624959417880080, guid: 8479d75e1e313ec44b6d9dc692637072,
-    type: 3}
-  m_PrefabInstance: {fileID: 1180382905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1181939674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14046,9 +14046,10 @@ MonoBehaviour:
   rotateSmooth: {fileID: 2134789475}
   _move: {fileID: 2134789476}
   _rotate: {fileID: 2134789475}
-  slot: {fileID: 1180382908}
+  slot: {fileID: 191670775}
   img: {fileID: 21300000, guid: 8eb039414f2f2f94fb5e7d61b0e2105d, type: 3}
   tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: 901647b68bc51964fad1046011655eb2, type: 2}
   waypoints:
   - {fileID: 541069767}
   - {fileID: 1079465953}

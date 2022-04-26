@@ -7,11 +7,14 @@ public class scriptCucaracha : MonoBehaviour
 {
     public Camera camera;
     public ActiveNarrNuclear nar;
+
     //Imagen En Pantalla
     public Image slot;
     public Sprite img;
     [SerializeField]
     float tiempoDesaparicion = 10f;
+    public AnimationClip animClip;
+
     public AudioNucl audios;
     Animator animator;
   
@@ -52,13 +55,9 @@ public class scriptCucaracha : MonoBehaviour
 
                     animator.SetBool("semueve", true);
                     RoachNarration();
-                    //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    slot.sprite = img;
-                    Color clr = slot.color;
-                    clr.a = 255f;
-                    slot.color = clr;
-                    //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
-                    Invoke("ClearImage", tiempoDesaparicion);
+
+                    //Se invoca la muestra de image despues de a duracion del clip
+                    Invoke("DisplayImage", animClip.length);
                 }
 
             }
@@ -66,6 +65,18 @@ public class scriptCucaracha : MonoBehaviour
 
       
     }
+    
+    void DisplayImage()
+    {
+        //Se asigna la imagen del animal y se pone el alpha en su maximo
+        slot.sprite = img;
+        Color clr = slot.color;
+        clr.a = 255f;
+        slot.color = clr;
+        //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
+        Invoke("ClearImage", tiempoDesaparicion);
+    }
+
     void ClearImage()
     {
         //Quita la referencia a la imagen y pone el aplha en su minimo
@@ -74,6 +85,5 @@ public class scriptCucaracha : MonoBehaviour
         clr.a = 0f;
         slot.color = clr;
     }
-
 
 }
