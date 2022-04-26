@@ -82,7 +82,7 @@ public class scriptPuma : MonoBehaviour
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetA>() != null)
+                if (hitInfo.collider.gameObject.GetComponent<TargetR>() != null)
                 {
                     Debug.Log("el puma camina");
                     animator.SetBool("semueve", true);
