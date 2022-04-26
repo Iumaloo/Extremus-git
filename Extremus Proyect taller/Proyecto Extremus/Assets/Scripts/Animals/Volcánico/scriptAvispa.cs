@@ -17,7 +17,7 @@ public class scriptAvispa : MonoBehaviour
 
     void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
+        animator =GetComponent<Animator>();
         waypointIndex = 0;
         transform.LookAt(waypoints[waypointIndex].position);
         isPatrollin = false;
@@ -90,9 +90,9 @@ public class scriptAvispa : MonoBehaviour
     void IncreaseSize()
     {
         tmp = transform.localScale;
-        tmp.x += 4f;
-        tmp.y += 4f;
-        tmp.z += 4f;
+        tmp.x += 1.2f;
+        tmp.y += 1.2f;
+        tmp.z += 1.2f;
         transform.localScale = tmp;
     }
 }

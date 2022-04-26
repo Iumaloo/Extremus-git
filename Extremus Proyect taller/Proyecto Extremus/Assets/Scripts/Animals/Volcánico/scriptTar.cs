@@ -21,7 +21,9 @@ public class scriptTar : MonoBehaviour
     private float dist;
     public int speed;
     public bool isPatrollin;
-    Vector3 tmp;
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate; Vector3 tmp;
 
 
 
@@ -51,6 +53,18 @@ public class scriptTar : MonoBehaviour
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
         Patrol();
+    }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
+    }
+    public void AllowAction()
+    {
+        _move._speed = 10;
+        _rotate.speed = 200;
+        rotateSmooth.speed = 200;
     }
     void IncreaseIndex()
     {
@@ -104,6 +118,8 @@ public class scriptTar : MonoBehaviour
                     //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
                     Invoke("ClearImage", tiempoDesaparicion);
                     IncreaseSize();
+                    LimitAction();
+                    Invoke("AllowAction", 18f);
                     isPatrollin = true;
                 }
             }
