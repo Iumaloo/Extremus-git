@@ -10581,6 +10581,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &1180382908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5682624959417880080, guid: 8479d75e1e313ec44b6d9dc692637072,
+    type: 3}
+  m_PrefabInstance: {fileID: 1180382905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1181939674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11486,13 +11498,11 @@ MonoBehaviour:
   camera: {fileID: 2131334287}
   audio: {fileID: 1508173453}
   nar: {fileID: 252229187}
-  rotateSmooth: {fileID: 2134789475}
-  _move: {fileID: 2134789476}
-  _rotate: {fileID: 2134789475}
-  waypoints:
-  - {fileID: 607525132}
-  - {fileID: 1572803469}
-  speed: 2
+  rotateSmooth: {fileID: 0}
+  _move: {fileID: 0}
+  _rotate: {fileID: 0}
+  waypoints: []
+  speed: 0
   isPatrollin: 0
 --- !u!114 &1266683991
 MonoBehaviour:
@@ -14036,6 +14046,9 @@ MonoBehaviour:
   rotateSmooth: {fileID: 2134789475}
   _move: {fileID: 2134789476}
   _rotate: {fileID: 2134789475}
+  slot: {fileID: 1180382908}
+  img: {fileID: 21300000, guid: 8eb039414f2f2f94fb5e7d61b0e2105d, type: 3}
+  tiempoDesaparicion: 10
   waypoints:
   - {fileID: 541069767}
   - {fileID: 1079465953}
@@ -14445,11 +14458,14 @@ MonoBehaviour:
   waypoints:
   - {fileID: 583040541}
   - {fileID: 1828932856}
+  slot: {fileID: 0}
+  img: {fileID: 0}
+  tiempoDesaparicion: 10
   speed: 2
   isPatrollin: 0
-  rotateSmooth: {fileID: 2134789475}
-  _move: {fileID: 2134789476}
-  _rotate: {fileID: 2134789475}
+  rotateSmooth: {fileID: 0}
+  _move: {fileID: 0}
+  _rotate: {fileID: 0}
 --- !u!114 &1621830994
 MonoBehaviour:
   m_ObjectHideFlags: 0
