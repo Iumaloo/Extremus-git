@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class activaterot : MonoBehaviour
 {
-    [SerializeField] GameObject[] objects;
+   // [SerializeField] GameObject[] objects;
     public playerrotate playerrotate;
     public PlayerRotateSmooth playsmooth;
+    [SerializeField] GameObject textoWalk;
+    [SerializeField] GameObject btnWalk;
+    [SerializeField] GameObject textoRot;
+    [SerializeField] GameObject btbye;
+    [SerializeField] GameObject btactual;
     float timer;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +23,7 @@ public class activaterot : MonoBehaviour
     void Update()
     {
      
-        timer += Time.deltaTime;
+       /* timer += Time.deltaTime;
        // Debug.Log("T : " + timer);
         foreach (GameObject textos in objects)
         {
@@ -32,39 +37,53 @@ public class activaterot : MonoBehaviour
                   
                 }
             }
-        }
+        }*/
 
 
     }
-    void OnTriggerEnter(Collider other)
+    /* void OnTriggerEnter(Collider other)
+     {
+         timer = 0;
+         if (other.tag == "player")
+         {
+
+             Debug.Log("DD");
+            /* for (int i=0;i<objects.Length;i++)
+             {
+                 if (objects[i].CompareTag("orbitar"))
+                 {
+                     Debug.Log("dddddd");
+                     objects[i].SetActive(true);
+                 }
+             }
+             foreach (GameObject textos in objects)
+             {
+
+                 if (textos.CompareTag("orbitar"))
+                 {
+
+                     textos.SetActive(true);
+                     Debug.Log("active");
+                     playerrotate.speed = 200;
+                     playsmooth.speed = 200;
+                 }
+             }
+         }*/
+
+    public void ActivateRotate()
     {
-        timer = 0;
-        if (other.tag == "player")
-        {
-            
-            Debug.Log("DD");
-           /* for (int i=0;i<objects.Length;i++)
-            {
-                if (objects[i].CompareTag("orbitar"))
-                {
-                    Debug.Log("dddddd");
-                    objects[i].SetActive(true);
-                }
-            }*/
-            foreach (GameObject textos in objects)
-            {
-                
-                if (textos.CompareTag("orbitar"))
-                {
-                    
-                    textos.SetActive(true);
-                    Debug.Log("active");
-                    playerrotate.speed = 200;
-                    playsmooth.speed = 200;
-                }
-            }
-        }
+        textoWalk.SetActive(false);//desactivar texto caminar
+        btnWalk.SetActive(false);//desactivar botón walks
+        textoRot.SetActive(true); //activar texto rotar
+        btbye.SetActive(true); //activar boton irse
+        btactual.SetActive(false);
+        playerrotate.speed = 200;
+        playsmooth.speed = 200;
+    }
          
     }
+
+
     
-}
+
+

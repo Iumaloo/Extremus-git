@@ -8,12 +8,14 @@ public class player : MonoBehaviour
     private playerrotate _rotate;
     private playerrotate rotateSmooth;
     private playerrotate currentRotate;
+    public AudioSource myAudio;
     private void Awake()
     {
         _move = GetComponent<playermove>();
         _rotate = GetComponents<playerrotate>()[0];
         rotateSmooth = GetComponents<playerrotate>()[1];
         currentRotate = rotateSmooth;
+       
 
 
 
@@ -24,5 +26,19 @@ public class player : MonoBehaviour
     {
         _move.Move();
         currentRotate.Rotate();
+       // LimitActionN();
     }
+
+    /*public void LimitActionN()
+    {
+        
+            if (myAudio.isPlaying)
+            {
+                _move._speed = 0;
+                _rotate.speed = 0;
+                rotateSmooth.speed = 0;
+            }
+        
+        
+    }*/
 }

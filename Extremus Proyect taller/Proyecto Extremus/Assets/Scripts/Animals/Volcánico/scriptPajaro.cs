@@ -6,12 +6,25 @@ public class scriptPajaro : MonoBehaviour
 {
     public Camera camera;
     public Audio1 audio;
-   /* private void OnMouseDown()
-    {
-        Debug.Log("El pájaro camina/Aletea)");
-        BirdNarration();
-    }*/
+    Animator animator;
+    public Transform[] waypoints;
+    private int waypointIndex;
+    private float dist;
+    public int speed;
+    public bool isPatrollin;
+    /* private void OnMouseDown()
+     {
+         Debug.Log("El pájaro camina/Aletea)");
+         BirdNarration();
+     }*/
 
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+        isPatrollin = false;
+    }
     private void BirdNarration()
     {
         Debug.Log("Este  párajo con grandes patas...");
@@ -25,6 +38,36 @@ public class scriptPajaro : MonoBehaviour
             Debug.Log("Paró narración");
             ClickAction();
         }
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
+
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
     }
 
     void ClickAction()
@@ -38,7 +81,9 @@ public class scriptPajaro : MonoBehaviour
                 if (hitInfo.collider.gameObject.GetComponent<TargetP>() != null)
                 {
                     Debug.Log("El pájaro camina/Aletea");
+                    animator.SetBool("semueve", true);
                     BirdNarration();
+                    isPatrollin = true;
                 }
             }
         }

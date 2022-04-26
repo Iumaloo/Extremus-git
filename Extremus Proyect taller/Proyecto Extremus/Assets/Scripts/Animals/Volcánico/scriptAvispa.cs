@@ -8,11 +8,19 @@ public class scriptAvispa : MonoBehaviour
     public ActiveNarrNuclear nar;
     public AudioNucl audios;
     Animator animator;
- 
+    public Transform[] waypoints;
+    private int waypointIndex;
+    private float dist;
+    public int speed;
+    public bool isPatrollin;
+    Vector3 tmp;
 
     void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
+        animator =GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+        isPatrollin = false;
     }
     private void WaspNarration()
     {
@@ -26,10 +34,39 @@ public class scriptAvispa : MonoBehaviour
             Debug.Log("Paró narración");
             ClickAction();
         }
-
-
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
     }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
+
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+
 
     public void ClickAction()
     {
@@ -39,13 +76,23 @@ public class scriptAvispa : MonoBehaviour
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetA>() != null)
+                if (hitInfo.collider.gameObject.GetComponent<TargetP>() != null)
                 {
                     Debug.Log("La araña camina");
                     animator.SetBool("semueve", true);
                     WaspNarration();
+                    isPatrollin = true;
+                    IncreaseSize();
                 }
             }
         }
+    }
+    void IncreaseSize()
+    {
+        tmp = transform.localScale;
+        tmp.x += 1.2f;
+        tmp.y += 1.2f;
+        tmp.z += 1.2f;
+        transform.localScale = tmp;
     }
 }

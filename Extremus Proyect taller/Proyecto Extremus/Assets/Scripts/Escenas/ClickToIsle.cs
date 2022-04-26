@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class ClickToIsle : MonoBehaviour
 {
     // Start is called before the first frame update
-  
 
+    [SerializeField] string name;
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Nuclear");
+        SceneManager.LoadScene(name);
     }
 }

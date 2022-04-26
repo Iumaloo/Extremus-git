@@ -33,6 +33,7 @@ public class AudioMarino : MonoBehaviour
     public void PlayBlob()
     {
         myAudio.PlayOneShot(narrBlobFish);
+        Debug.Log("BLOB SINGS");
     }
     public void PlayGusano()
     {

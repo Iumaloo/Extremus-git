@@ -15,7 +15,8 @@ public class Audio1 : MonoBehaviour
     [SerializeField] AudioClip narrSnail;
     [SerializeField] AudioClip narrTar;
 
-    public bool isYellin;
+    public bool isVol, isBird,isTard,isSpi,isSnail,isYellin;
+    
     void Update()
     {
         /*if(Input.GetKeyDown(KeyCode.C))

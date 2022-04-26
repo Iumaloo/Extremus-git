@@ -20,5 +20,8 @@ public class triggerBackIsles : MonoBehaviour
     {
         SceneManager.LoadScene("Islas");
     }
-    
+    public void Bye()
+    {
+        SceneManager.LoadScene("Islas");
+    }
 }

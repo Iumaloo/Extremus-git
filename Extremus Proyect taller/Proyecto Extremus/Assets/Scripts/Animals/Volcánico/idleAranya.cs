@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class idleAranya : MonoBehaviour
 {
     public Camera camera;
     public ActiveNarra nar;
     public Audio1 audios;
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate;
     Animator animator;
+
+    //Imagen En Pantalla
+    public Image slot;
+    public Sprite img;
+    [SerializeField]
+    float tiempoDesaparicion = 10f;
+
     // Audio1 audio;
     /*private void OnMouseDown()
     {
@@ -26,7 +37,21 @@ public class idleAranya : MonoBehaviour
         animator = GetComponent<Animator>();
         waypointIndex = 0;
         transform.LookAt(waypoints[waypointIndex].position);
+       
         isPatrollin = false;
+
+    }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
+    }
+    public void AllowAction()
+    {
+        _move._speed = 10;
+        _rotate.speed = 200;
+        rotateSmooth.speed = 200;
     }
     private void SpiderNarration()
     {
@@ -90,13 +115,29 @@ public class idleAranya : MonoBehaviour
                     animator.SetBool("semueve", true);
                   
                     SpiderNarration();
+                    LimitAction();
+                    Invoke("AllowAction", 18f);
                     isPatrollin = true;
-                   
 
+                    //Se asigna la imagen del animal y se pone el alpha en su maximo
+                    slot.sprite = img;
+                    Color clr = slot.color;
+                    clr.a = 255f;
+                    slot.color = clr;
+                    //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
+                    Invoke("ClearImage", tiempoDesaparicion);
 
                 }
             }
         }
+    }
+    void ClearImage()
+    {
+        //Quita la referencia a la imagen y pone el aplha en su minimo
+        slot.sprite = null;
+        Color clr = slot.color;
+        clr.a = 0f;
+        slot.color = clr;
     }
 }
 
