@@ -8,12 +8,21 @@ public class scriptCucaracha : MonoBehaviour
     public ActiveNarrNuclear nar;
     public AudioNucl audios;
     Animator animator;
-  
+    public Transform[] waypoints;
+    public int speed;
+    private int waypointIndex;
+    private float dist;
+    public bool isPatrollin;
+
 
 
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
+        animator =GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+
+        isPatrollin = false;
     }
     private void RoachNarration()
     {
@@ -28,8 +37,38 @@ public class scriptCucaracha : MonoBehaviour
             ClickAction();
         }
 
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
 
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
+
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
     }
 
     public void ClickAction()
@@ -46,6 +85,7 @@ public class scriptCucaracha : MonoBehaviour
 
                     animator.SetBool("semueve", true);
                     RoachNarration();
+                    isPatrollin = true;
                 }
 
             }
