@@ -7,6 +7,7 @@ public class scriptRana : MonoBehaviour
     public Camera camera;
     public ActiveNarrNuclear nar;
     public AudioNucl audios;
+    Animator animator;
     // Audio1 audio;
     /*private void OnMouseDown()
     {
@@ -16,7 +17,7 @@ public class scriptRana : MonoBehaviour
 
     void Start()
     {
-
+        animator = gameObject.GetComponent<Animator>();
     }
     private void FrogNarration()
     {
@@ -43,9 +44,11 @@ public class scriptRana : MonoBehaviour
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetC>() != null)
+                if (hitInfo.collider.gameObject.GetComponent<TargetA>() != null)
                 {
+                    animator.SetBool("semueve", true);
                     Debug.Log("La araña camina");
+
                     FrogNarration();
                 }
             }
