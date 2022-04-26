@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class idleAranya : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class idleAranya : MonoBehaviour
     public playermove _move;
     public playerrotate _rotate;
     Animator animator;
+
+    //Imagen En Pantalla
+    public Image slot;
+    public Sprite img;
+    [SerializeField]
+    float tiempoDesaparicion = 10f;
+
     // Audio1 audio;
     /*private void OnMouseDown()
     {
@@ -110,10 +118,26 @@ public class idleAranya : MonoBehaviour
                     LimitAction();
                     Invoke("AllowAction", 18f);
                     isPatrollin = true;
-                   
+
+                    //Se asigna la imagen del animal y se pone el alpha en su maximo
+                    slot.sprite = img;
+                    Color clr = slot.color;
+                    clr.a = 255f;
+                    slot.color = clr;
+                    //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
+                    Invoke("ClearImage", tiempoDesaparicion);
+
                 }
             }
         }
+    }
+    void ClearImage()
+    {
+        //Quita la referencia a la imagen y pone el aplha en su minimo
+        slot.sprite = null;
+        Color clr = slot.color;
+        clr.a = 0f;
+        slot.color = clr;
     }
 }
 
