@@ -17,17 +17,41 @@ public class scriptCucaracha : MonoBehaviour
 
     public AudioNucl audios;
     Animator animator;
-  
+    public Transform[] waypoints;
+    public int speed;
+    private int waypointIndex;
+    private float dist;
+    public bool isPatrollin;
+
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate;
 
 
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+
+        isPatrollin = false;
     }
     private void RoachNarration()
     {
         Debug.Log("cucaracha");
         audios.PlayC();
+    }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
+    }
+    public void AllowAction()
+    {
+        _move._speed = 10;
+        _rotate.speed = 200;
+        rotateSmooth.speed = 200;
     }
     void Update()
     {
@@ -36,9 +60,38 @@ public class scriptCucaracha : MonoBehaviour
             Debug.Log("Paró narración");
             ClickAction();
         }
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
 
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
 
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
     }
 
     public void ClickAction()
@@ -55,6 +108,9 @@ public class scriptCucaracha : MonoBehaviour
 
                     animator.SetBool("semueve", true);
                     RoachNarration();
+                    LimitAction();
+                    Invoke("AllowAction", 18f);
+                    isPatrollin = true;
 
                     //Se invoca la muestra de image despues de a duracion del clip
                     Invoke("DisplayImage", animClip.length);

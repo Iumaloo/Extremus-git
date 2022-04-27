@@ -13775,7 +13775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223541668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.6, y: 83.82, z: -110.71}
+  m_LocalPosition: {x: -28.6, y: 83.82, z: -124.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190298946}
@@ -26789,7 +26789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578208302}
   m_LocalRotation: {x: -0, y: -0.0188582, z: -0, w: -0.99982214}
-  m_LocalPosition: {x: 192, y: -3, z: -57}
+  m_LocalPosition: {x: 299, y: -3, z: -46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1626639802}
@@ -92240,6 +92240,14 @@ MonoBehaviour:
   tiempoDesaparicion: 10
   animClip: {fileID: 7400000, guid: 3181fa3c40990ef46bd1d7fd705b5d20, type: 2}
   audios: {fileID: 1989118967}
+  waypoints:
+  - {fileID: 2016032359}
+  - {fileID: 223541669}
+  speed: 2
+  isPatrollin: 0
+  rotateSmooth: {fileID: 578208304}
+  _move: {fileID: 578208305}
+  _rotate: {fileID: 578208304}
 --- !u!114 &1816315999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98882,7 +98890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016032358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.85, y: 83.82, z: -107.46}
+  m_LocalPosition: {x: -32.85, y: 83.82, z: -121.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190298946}
