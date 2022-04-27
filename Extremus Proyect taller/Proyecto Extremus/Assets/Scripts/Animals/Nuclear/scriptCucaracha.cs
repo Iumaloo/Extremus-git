@@ -14,12 +14,22 @@ public class scriptCucaracha : MonoBehaviour
     float tiempoDesaparicion = 10f;
     public AudioNucl audios;
     Animator animator;
-  
 
+    //waypoints
+    public Transform[] waypoints;
+    public int speed;
+    private int waypointIndex;
+    private float dist;
+    public bool isPatrollin;
 
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+
+        isPatrollin = false;
+
     }
     private void RoachNarration()
     {
@@ -34,10 +44,39 @@ public class scriptCucaracha : MonoBehaviour
             ClickAction();
         }
 
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
 
     }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
 
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
+    }
     public void ClickAction()
     {
         if (Input.GetMouseButtonDown(0))
@@ -52,13 +91,15 @@ public class scriptCucaracha : MonoBehaviour
 
                     animator.SetBool("semueve", true);
                     RoachNarration();
+                    isPatrollin = true;
+
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    slot.sprite = img;
+                   /* slot.sprite = img;
                     Color clr = slot.color;
                     clr.a = 255f;
                     slot.color = clr;
                     //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
-                    Invoke("ClearImage", tiempoDesaparicion);
+                    Invoke("ClearImage", tiempoDesaparicion);*/
                 }
 
             }
