@@ -71,7 +71,7 @@ public class scriptCucaracha : MonoBehaviour
     {
         if (isPatrollin == true)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
             Debug.Log("IT MOVES");
         }
 
@@ -107,6 +107,7 @@ public class scriptCucaracha : MonoBehaviour
                     LimitAction();
                     Invoke("AllowAction", 18f);
                     isPatrollin = true;
+                    Invoke("StopPatroll", 10f);
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
                     /*slot.sprite = img;
                     Color clr = slot.color;
@@ -120,6 +121,11 @@ public class scriptCucaracha : MonoBehaviour
         }
 
       
+    }
+    private void StopPatroll()
+    {
+        isPatrollin = false;
+        animator.SetBool("semueve", false);
     }
     void ClearImage()
     {
