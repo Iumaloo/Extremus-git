@@ -31278,7 +31278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688138383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.15, y: 83.76068, z: -51.46}
+  m_LocalPosition: {x: 6.15, y: 83.76068, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190298946}
@@ -44944,7 +44944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041040140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.152618, y: 83.76068, z: -18.96}
+  m_LocalPosition: {x: 6.152618, y: 83.76068, z: -44.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190298946}
@@ -89972,9 +89972,7 @@ MonoBehaviour:
   camera: {fileID: 963194227}
   nar: {fileID: 2035215258}
   audios: {fileID: 1989118967}
-  waypoints:
-  - {fileID: 1041040141}
-  - {fileID: 688138384}
+  waypoints: []
   speed: 1
   isPatrollin: 0
 --- !u!4 &1764520268 stripped
