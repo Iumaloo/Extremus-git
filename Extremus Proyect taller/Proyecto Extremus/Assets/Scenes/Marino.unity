@@ -1012,13 +1012,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226148663}
-  m_LocalRotation: {x: -0, y: 0.9471815, z: -0, w: 0.32069784}
-  m_LocalPosition: {x: 0, y: 0, z: 3.03}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2100974560}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 142.59001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &226148665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4688,13 +4688,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336727774}
-  m_LocalRotation: {x: -0, y: 0.98957026, z: -0, w: 0.14405155}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1703159238}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 163.43501, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1336727778
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5194,15 +5194,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384873262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.1, y: -6.37, z: 0}
+  m_LocalRotation: {x: -0, y: 0.9904516, z: -0, w: -0.13786137}
+  m_LocalPosition: {x: 82, y: -6.37, z: 0}
   m_LocalScale: {x: 2.0821, y: 2.0821, z: 2.0821}
   m_Children:
   - {fileID: 2100974560}
   - {fileID: 1703159238}
   m_Father: {fileID: 1028631945}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 195.84799, z: 0}
 --- !u!54 &1384873264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5290,7 +5290,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.3
-  m_Radius: 0.6
+  m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
