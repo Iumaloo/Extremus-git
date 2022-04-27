@@ -921,7 +921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223815051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.49, y: 5.58, z: -14.49}
+  m_LocalPosition: {x: 8.49, y: 5.58, z: -14.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1926396576}
@@ -1013,7 +1013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226148663}
   m_LocalRotation: {x: -0, y: 0.9471815, z: -0, w: 0.32069784}
-  m_LocalPosition: {x: 0, y: 0, z: 0.14}
+  m_LocalPosition: {x: 0, y: 0, z: 3.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2100974560}
@@ -1282,7 +1282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355990611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.49, y: 5.58, z: -24.49}
+  m_LocalPosition: {x: 15.49, y: 5.58, z: -13.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1926396576}
@@ -1586,13 +1586,9 @@ MonoBehaviour:
   nar: {fileID: 942732944}
   audios: {fileID: 1948648117}
   waypoints:
-  - {fileID: 223815052}
+  - {fileID: 355990612}
   - {fileID: 355990612}
   speed: 1
-  slot: {fileID: 424551368}
-  img: {fileID: 21300000, guid: ec7dd7448d52cb046ab3566124aa971f, type: 3}
-  tiempoDesaparicion: 10
-  animClip: {fileID: 7400000, guid: 3cacb96f0d4517e4ebb0b5f68f1013a8, type: 2}
   isPatrollin: 0
 --- !u!23 &436504071
 MeshRenderer:
@@ -4692,13 +4688,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336727774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalRotation: {x: -0, y: 0.98957026, z: -0, w: 0.14405155}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1703159238}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 163.43501, z: 0}
 --- !u!82 &1336727778
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5198,7 +5194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384873262}
-  m_LocalRotation: {x: 0.040579066, y: 0.97795534, z: -0.01640284, w: 0.20417584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 76.1, y: -6.37, z: 0}
   m_LocalScale: {x: 2.0821, y: 2.0821, z: 2.0821}
   m_Children:
@@ -5206,7 +5202,7 @@ Transform:
   - {fileID: 1703159238}
   m_Father: {fileID: 1028631945}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.789, y: 156.516, z: 4.1720004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1384873264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5903,10 +5899,6 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1798361389}
   - {fileID: 166450581}
-  slot: {fileID: 424551368}
-  img: {fileID: 21300000, guid: d6ced80f29f9a6e44b7fa845bc884f60, type: 3}
-  tiempoDesaparicion: 10
-  animClip: {fileID: 7400000, guid: 1ae67760296484b44a5811804616eeb9, type: 2}
   speed: 5
   isPatrollin: 0
 --- !u!23 &1614181467
@@ -5971,8 +5963,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29520515, y: 0.28372803, z: 0.3900922}
-  m_Center: {x: 0.027991707, y: 0.08372142, z: -0.0054119364}
+  m_Size: {x: 0.4160066, y: 0.28372803, z: 0.32813972}
+  m_Center: {x: 0.08839228, y: 0.083721414, z: -0.03638837}
 --- !u!1 &1649185763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7966,7 +7958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100974559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.12}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 226148664}
