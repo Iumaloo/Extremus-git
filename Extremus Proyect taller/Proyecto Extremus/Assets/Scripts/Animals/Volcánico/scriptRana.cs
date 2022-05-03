@@ -87,7 +87,12 @@ public class scriptRana : MonoBehaviour
                 {
                     animator.SetBool("semueve", true);
                     Debug.Log("La araña camina");
-                    isPatrollin = true;
+                    if (!this.animator.GetCurrentAnimatorStateInfo(0).IsName("salticorana"))
+                    {
+                        isPatrollin = true;
+                        // Avoid any reload.
+                    }
+                  
                     FrogNarration();
                 }
             }

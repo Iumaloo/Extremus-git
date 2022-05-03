@@ -14,12 +14,24 @@ public class scriptCucaracha : MonoBehaviour
     float tiempoDesaparicion = 10f;
     public AudioNucl audios;
     Animator animator;
-  
+    //freeze movement
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate;
 
+    public Transform[] waypoints;
+    public int speed;
+    private int waypointIndex;
+    private float dist;
+    public bool isPatrollin;
 
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+
+        isPatrollin = false;
     }
     private void RoachNarration()
     {
@@ -33,11 +45,51 @@ public class scriptCucaracha : MonoBehaviour
             Debug.Log("Paró narración");
             ClickAction();
         }
-
+        if (dist < 1f)
+        {
+            IncreaseIndex();
+        }
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
 
     }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
+    }
+    public void AllowAction()
+    {
+        _move._speed = 10;
+        _rotate.speed = 200;
+        rotateSmooth.speed = 200;
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
 
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);
+    }
     public void ClickAction()
     {
         if (Input.GetMouseButtonDown(0))
@@ -52,11 +104,15 @@ public class scriptCucaracha : MonoBehaviour
 
                     animator.SetBool("semueve", true);
                     RoachNarration();
+                    LimitAction();
+                    Invoke("AllowAction", 18f);
+                    isPatrollin = true;
+                    Invoke("StopPatroll", 10f);
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    slot.sprite = img;
+                    /*slot.sprite = img;
                     Color clr = slot.color;
                     clr.a = 255f;
-                    slot.color = clr;
+                    slot.color = clr;*/
                     //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
                     Invoke("ClearImage", tiempoDesaparicion);
                 }
@@ -65,6 +121,11 @@ public class scriptCucaracha : MonoBehaviour
         }
 
       
+    }
+    private void StopPatroll()
+    {
+        isPatrollin = false;
+        animator.SetBool("semueve", false);
     }
     void ClearImage()
     {
