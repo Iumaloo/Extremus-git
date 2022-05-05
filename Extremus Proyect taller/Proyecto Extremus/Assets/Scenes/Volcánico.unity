@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2ba90fbfe9474c643943cd4c54883af1, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d8bca3d602790fe44a20f46d02d68334, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -18632,6 +18632,7 @@ GameObject:
   - component: {fileID: 2131334291}
   - component: {fileID: 2131334290}
   - component: {fileID: 2131334289}
+  - component: {fileID: 2131334292}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18992,6 +18993,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!45 &2131334292
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131334285}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: d8bca3d602790fe44a20f46d02d68334, type: 2}
 --- !u!1001 &2133941173
 PrefabInstance:
   m_ObjectHideFlags: 0

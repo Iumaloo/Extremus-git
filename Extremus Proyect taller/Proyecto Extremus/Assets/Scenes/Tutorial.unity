@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d8ef473d4a93f4e90098beb41c9a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAudio: {fileID: 0}
 --- !u!82 &370914950
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3426,6 +3427,7 @@ GameObject:
   - component: {fileID: 1615133457}
   - component: {fileID: 1615133456}
   - component: {fileID: 1615133455}
+  - component: {fileID: 1615133458}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3498,6 +3500,15 @@ Transform:
   m_Father: {fileID: 868001131}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1615133458
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615133454}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 2bbb450135275d3468c6bdf0a38f3686, type: 2}
 --- !u!1 &1741160319
 GameObject:
   m_ObjectHideFlags: 0
