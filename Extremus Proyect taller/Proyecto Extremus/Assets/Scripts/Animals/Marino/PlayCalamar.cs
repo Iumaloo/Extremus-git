@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayCalamar : MonoBehaviour
 {
     public Camera camera;
-    public ActiveNarrNuclear nar;
+    public ActiveNarrMarino nar;
     public AudioMarino audios;
+    Animator animator;
 
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
     private void SquidNarration()
     {
@@ -39,7 +40,8 @@ public class PlayCalamar : MonoBehaviour
             {
                 if (hitInfo.collider.gameObject.GetComponent<TargetA>() != null)
                 {
-                    Debug.Log("Calamar camina");
+                    animator.SetBool("semueve", true);
+                    Debug.Log("Calamar camina"); 
                     SquidNarration();
                 }
             }
