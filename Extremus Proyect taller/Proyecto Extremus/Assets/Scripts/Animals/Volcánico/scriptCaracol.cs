@@ -76,7 +76,7 @@ public class scriptCaracol : MonoBehaviour
         {
             waypointIndex = 0;
         }
-        transform.LookAt(waypoints[waypointIndex].position);
+        transform.LookAt(waypoints[waypointIndex].position);//error index outside bounds of array preguntar.
     }
     public void LimitAction()
     {
