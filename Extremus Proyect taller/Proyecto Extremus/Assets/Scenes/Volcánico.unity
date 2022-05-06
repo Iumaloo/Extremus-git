@@ -2203,6 +2203,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4947039792954609119, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72bdc40ca2f0e584d8a5f05db46d731f,
+        type: 3}
     - target: {fileID: 4947039792957656314, guid: e16c95d4d7d411d4d96e23e5381d7d90,
         type: 3}
       propertyPath: m_Name
@@ -2323,6 +2329,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4947039793205541980, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3bda07b1b3551644bf14f6cf152e892,
+        type: 3}
     - target: {fileID: 4947039793205541982, guid: e16c95d4d7d411d4d96e23e5381d7d90,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2343,6 +2355,24 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Islas
       objectReference: {fileID: 0}
+    - target: {fileID: 4947039793756886253, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 831ec568cc8238f48bbadfe2f83fa0af,
+        type: 3}
+    - target: {fileID: 4947039793761953095, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b39cf8ec0f965241965132787feddd4,
+        type: 3}
+    - target: {fileID: 4947039794347783539, guid: e16c95d4d7d411d4d96e23e5381d7d90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fcf7bd140e546bb4d9e6b4c2a70e355f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e16c95d4d7d411d4d96e23e5381d7d90, type: 3}
 --- !u!1 &252229182
