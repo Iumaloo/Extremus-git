@@ -42,6 +42,7 @@ public class scriptGusano : MonoBehaviour
         Patrol();
 
 
+
     }
     void Patrol()
     {
