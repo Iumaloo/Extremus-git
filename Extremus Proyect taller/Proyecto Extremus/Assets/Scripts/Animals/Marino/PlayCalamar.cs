@@ -8,28 +8,62 @@ public class PlayCalamar : MonoBehaviour
     public Camera camera;
     public ActiveNarrMarino nar;
     public AudioMarino audios;
+    public playerrotate rotateSmooth;
+    public playermove _move;
+    public playerrotate _rotate;
     Animator animator;
-    /* public Transform[] waypoints;
+    public Transform[] waypoints;
      private int waypointIndex;
      private float dist;
      public int speed;
-     public bool isPatrollin;*/
-    NavMeshAgent agent;
-    public Transform[] waypoints;
-    int waypointIndex;
+     public bool isPatrollin;
+
+ 
     Vector3 target;
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);
+        isPatrollin = false;
+
 
     }
     private void SquidNarration()
     {
         Debug.Log("Calamar");
         audios.PlayCalamar();
+    }
+    void Patrol()
+    {
+        if (isPatrollin == true)
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Debug.Log("IT MOVES");
+        }
+
+    }
+    void DontPatrol()
+    {
+        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
+        Debug.Log("troste");
+    }
+    void IncreaseIndex()
+    {
+        waypointIndex++;
+        if (waypointIndex >= waypoints.Length)
+        {
+            waypointIndex = 0;
+        }
+        transform.LookAt(waypoints[waypointIndex].position);//error index outside bounds of array preguntar.
+    }
+    public void LimitAction()
+    {
+        _move._speed = 0;
+        _rotate.speed = 0;
+        rotateSmooth.speed = 0;
     }
     void Update()
     {
@@ -40,31 +74,16 @@ public class PlayCalamar : MonoBehaviour
             ClickAction();
         }
 
-        if(Vector3.Distance(transform.position,target)<1)
+        if (dist < 1f)
         {
-
+            IncreaseIndex();
         }
-       
-
-
+        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
+        //con bools
+        Patrol();
 
     }
-    void UpdateDestination()
-    {
-        target = waypoints[waypointIndex].position;
-        agent.SetDestination(target);
-    }
-    void IterateWaypointIndex()
-    {
-        waypointIndex++;
-        if(waypointIndex==waypoints.Length)
-        {
-            waypointIndex = 0;
-        }
-    }
-    
-    
-
+  
     public void ClickAction()
     {
         if (Input.GetMouseButtonDown(0))
@@ -78,7 +97,7 @@ public class PlayCalamar : MonoBehaviour
                     animator.SetBool("semueve", true);
                     Debug.Log("Calamar camina"); 
                     SquidNarration();
-                    
+                    isPatrollin = true;
                 }
             }
         }
