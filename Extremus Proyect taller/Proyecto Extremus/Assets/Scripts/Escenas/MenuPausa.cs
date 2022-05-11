@@ -46,7 +46,8 @@ public class MenuPausa : MonoBehaviour
     }
     public void cerrar()
     {
-        Application.Quit(); 
+        SceneManager.LoadScene("Islas");
+        //Application.Quit(); 
     }
     public void LoadScene(string scenemane)
     {
