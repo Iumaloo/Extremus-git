@@ -101,20 +101,21 @@ public class scriptTar : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            if ((Physics.Raycast(ray, out hit, 100.0f)))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetC>() != null)
+                if (hit.transform != null)
                 {
                     Debug.Log("Tar camina");
                     animator.SetBool("semueve", true);
                     TarNarr();
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    slot.sprite = img;
-                    Color clr = slot.color;
-                    clr.a = 255f;
-                    slot.color = clr;
+                    //slot.sprite = img;
+                   // Color clr = slot.color;
+                   // clr.a = 255f;
+                   // slot.color = clr;
                     //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
                     Invoke("ClearImage", tiempoDesaparicion);
                     IncreaseSize();

@@ -72,11 +72,13 @@ public class scriptAvispa : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+
+            if (Physics.Raycast(ray, out hit,100.0f))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetP>() != null)
+                if (hit.transform!=null)
                 {
                     Debug.Log("La araña camina");
                     animator.SetBool("semueve", true);

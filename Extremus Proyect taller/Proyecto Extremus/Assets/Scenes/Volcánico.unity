@@ -25043,7 +25043,7 @@ MonoBehaviour:
   - {fileID: 583040541}
   - {fileID: 1828932856}
   slot: {fileID: 0}
-  img: {fileID: 0}
+  img: {fileID: 21300000, guid: 116853e9f2a3eb84991aca9557bc1880, type: 3}
   tiempoDesaparicion: 10
   speed: 2
   isPatrollin: 0
