@@ -53,6 +53,7 @@ public class scriptTar : MonoBehaviour
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
         Patrol();
+       
     }
     public void LimitAction()
     {

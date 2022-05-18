@@ -14,6 +14,9 @@ public class scriptAvispa : MonoBehaviour
     public int speed;
     public bool isPatrollin;
     Vector3 tmp;
+    //true vertical shit
+    Vector3 _startingPos;
+    Transform _trans;
 
     void Awake()
     {
@@ -21,6 +24,8 @@ public class scriptAvispa : MonoBehaviour
         waypointIndex = 0;
         transform.LookAt(waypoints[waypointIndex].position);
         isPatrollin = false;
+        //_trans = GetComponent<Transform>();
+        //_startingPos = _trans.position;
     }
     private void WaspNarration()
     {
@@ -41,7 +46,10 @@ public class scriptAvispa : MonoBehaviour
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
         Patrol();
-
+       /*  if (isPatrollin == true)
+        {
+            MoveVertical();
+        }*/
     }
     void IncreaseIndex()
     {
@@ -67,7 +75,10 @@ public class scriptAvispa : MonoBehaviour
         Debug.Log("troste");
     }
 
-
+    /*public void MoveVertical()
+    {
+        _trans.position = new Vector3(_startingPos.x, _startingPos.y + Mathf.PingPong(Time.time, 3), _startingPos.z);
+    }*/
     public void ClickAction()
     {
         if (Input.GetMouseButtonDown(0))
@@ -89,6 +100,7 @@ public class scriptAvispa : MonoBehaviour
             }
         }
     }
+
     void IncreaseSize()
     {
         tmp = transform.localScale;

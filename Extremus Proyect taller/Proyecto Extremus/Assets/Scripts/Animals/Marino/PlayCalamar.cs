@@ -20,14 +20,17 @@ public class PlayCalamar : MonoBehaviour
 
  
     Vector3 target;
-
+    Vector3 _startingPos;
+    Transform _trans;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        waypointIndex = 0;
-        transform.LookAt(waypoints[waypointIndex].position);
+        //waypointIndex = 0;
+        //transform.LookAt(waypoints[waypointIndex].position);
         isPatrollin = false;
+        _trans = GetComponent<Transform>();
+        _startingPos = _trans.position;
 
 
     }
@@ -81,23 +84,32 @@ public class PlayCalamar : MonoBehaviour
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
         Patrol();
-
+        if(isPatrollin==true)
+        {
+            MoveVertical();
+        }
+        
     }
-  
+    public void MoveVertical()
+    {
+        _trans.position = new Vector3(_startingPos.x, _startingPos.y + Mathf.PingPong(Time.time, 3), _startingPos.z);
+    }
     public void ClickAction()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            if ((Physics.Raycast(ray, out hit, 100.0f)))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetR>() != null)
+                if (hit.transform != null)
                 {
                     animator.SetBool("semueve", true);
                     Debug.Log("Calamar camina"); 
                     SquidNarration();
-                    isPatrollin = true;
+                   
+                     isPatrollin = true;
                 }
             }
         }
