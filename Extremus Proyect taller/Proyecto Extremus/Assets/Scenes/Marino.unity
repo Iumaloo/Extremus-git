@@ -23663,6 +23663,10 @@ MonoBehaviour:
   waypoints:
   - {fileID: 223815052}
   - {fileID: 355990612}
+  slot: {fileID: 424551368}
+  img: {fileID: 21300000, guid: dc79faaf9dc5f9f4ea9433eaa2dfcb07, type: 3}
+  tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: 3cacb96f0d4517e4ebb0b5f68f1013a8, type: 2}
   speed: 2
   isPatrollin: 0
 --- !u!23 &436504071
@@ -32380,7 +32384,7 @@ MonoBehaviour:
   _move: {fileID: 1384873268}
   _rotate: {fileID: 1384873267}
   slot: {fileID: 424551368}
-  img: {fileID: 21300000, guid: 46a2eff01d063f646bde84a7cd0006a1, type: 3}
+  img: {fileID: 21300000, guid: 59360aa7cc0bce542b1e217326ebbafe, type: 3}
   tiempoDesaparicion: 10
   animClip: {fileID: 7400000, guid: 6538f5c0e39c9f04dae52981c9d3ed19, type: 2}
   waypoints:
@@ -50623,6 +50627,10 @@ MonoBehaviour:
   waypoints:
   - {fileID: 384346700}
   - {fileID: 2022222087}
+  slot: {fileID: 424551368}
+  img: {fileID: 21300000, guid: edc89d95ce86dfa47b80580e69d66cd1, type: 3}
+  tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: e397e446bec46b5488e626ad73fe43a9, type: 2}
   speed: 2
   isPatrollin: 0
   rayLength: 100
@@ -108417,6 +108425,10 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1798361389}
   - {fileID: 166450581}
+  slot: {fileID: 424551368}
+  img: {fileID: 21300000, guid: a6ee52ecdb73e394496898b9816c19dd, type: 3}
+  tiempoDesaparicion: 10
+  animClip: {fileID: 7400000, guid: 1ae67760296484b44a5811804616eeb9, type: 2}
   speed: 5
   isPatrollin: 0
 --- !u!23 &1614181467

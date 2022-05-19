@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scriptAvispa : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class scriptAvispa : MonoBehaviour
     public AudioNucl audios;
     Animator animator;
     public Transform[] waypoints;
+    //Imagen En Pantalla
+    public Image slot;
+    public Sprite img;
+    [SerializeField]
+    float tiempoDesaparicion = 10f;
+    public AnimationClip animClip;
     private int waypointIndex;
     private float dist;
     public int speed;
@@ -100,6 +107,9 @@ public class scriptAvispa : MonoBehaviour
                     WaspNarration();
                     isPatrollin = true;
                     IncreaseSize();
+
+                    //Se invoca la muestra de image despues de a duracion del clip
+                    Invoke("DisplayImage", animClip.length);
                 }
             }
         }
@@ -113,4 +123,25 @@ public class scriptAvispa : MonoBehaviour
         tmp.z += 1.2f;
         transform.localScale = tmp;
     }
+
+    void DisplayImage()
+    {
+        //Se asigna la imagen del animal y se pone el alpha en su maximo
+        slot.sprite = img;
+        Color clr = slot.color;
+        clr.a = 255f;
+        slot.color = clr;
+        //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
+        Invoke("ClearImage", tiempoDesaparicion);
+    }
+
+    void ClearImage()
+    {
+        //Quita la referencia a la imagen y pone el aplha en su minimo
+        slot.sprite = null;
+        Color clr = slot.color;
+        clr.a = 0f;
+        slot.color = clr;
+    }
+
 }

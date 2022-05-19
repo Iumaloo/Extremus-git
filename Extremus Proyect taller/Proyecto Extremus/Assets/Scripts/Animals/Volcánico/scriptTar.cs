@@ -17,6 +17,7 @@ public class scriptTar : MonoBehaviour
     public Sprite img;
     [SerializeField]
     float tiempoDesaparicion = 10f;
+    public AnimationClip animClip;
 
     private float dist;
     public int speed;
@@ -112,29 +113,32 @@ public class scriptTar : MonoBehaviour
                     Debug.Log("Tar camina");
                     animator.SetBool("semueve", true);
                     TarNarr();
-                    //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    //slot.sprite = img;
-                   // Color clr = slot.color;
-                   // clr.a = 255f;
-                   // slot.color = clr;
-                    //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
-                    Invoke("ClearImage", tiempoDesaparicion);
-                    IncreaseSize();
-                    LimitAction();
-                    Invoke("AllowAction", 18f);
-                    isPatrollin = true;
+
+                    //Se invoca la muestra de image despues de a duracion del clip
+                    Invoke("DisplayImage", animClip.length);
                 }
             }
         }
     }
 
-   /* void ClearImage()
+    void DisplayImage()
+    {
+        //Se asigna la imagen del animal y se pone el alpha en su maximo
+        slot.sprite = img;
+        Color clr = slot.color;
+        clr.a = 255f;
+        slot.color = clr;
+        //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
+        Invoke("ClearImage", tiempoDesaparicion);
+    }
+
+    void ClearImage()
     {
         //Quita la referencia a la imagen y pone el aplha en su minimo
         slot.sprite = null;
         Color clr = slot.color;
         clr.a = 0f;
         slot.color = clr;
-    }*/
+    }
 
 }
