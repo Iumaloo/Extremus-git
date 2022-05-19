@@ -71,11 +71,12 @@ public class scriptGusano : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            RaycastHit hit;
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            if ((Physics.Raycast(ray, out hit, 100.0f)))
             {
-                if (hitInfo.collider.gameObject.GetComponent<TargetC>() != null)
+                if (hit.transform != null)
                 {
                     Debug.Log("gusano camina");
 

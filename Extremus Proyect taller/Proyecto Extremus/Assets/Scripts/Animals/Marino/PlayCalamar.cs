@@ -70,7 +70,7 @@ public class PlayCalamar : MonoBehaviour
     }
     void Update()
     {
-        transform.localEulerAngles = new Vector3(0, 0, 0);
+       /* transform.localEulerAngles = new Vector3(0, 0, 0);
         if (!audios.myAudio.isPlaying)
         {
             Debug.Log("Paró narración");
@@ -83,7 +83,7 @@ public class PlayCalamar : MonoBehaviour
         }
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
-        Patrol();
+        Patrol();*/
         if(isPatrollin==true)
         {
             MoveVertical();

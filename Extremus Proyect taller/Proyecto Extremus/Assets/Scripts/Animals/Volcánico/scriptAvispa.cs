@@ -21,11 +21,11 @@ public class scriptAvispa : MonoBehaviour
     void Awake()
     {
         animator =GetComponent<Animator>();
-        waypointIndex = 0;
-        transform.LookAt(waypoints[waypointIndex].position);
+       /* waypointIndex = 0;
+        transform.LookAt(waypoints[waypointIndex].position);*/
         isPatrollin = false;
-        //_trans = GetComponent<Transform>();
-        //_startingPos = _trans.position;
+        _trans = GetComponent<Transform>();
+        _startingPos = _trans.position;
     }
     private void WaspNarration()
     {
@@ -46,10 +46,14 @@ public class scriptAvispa : MonoBehaviour
         dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
         //con bools
         Patrol();
-       /*  if (isPatrollin == true)
+        if (isPatrollin == true)
         {
             MoveVertical();
-        }*/
+        }
+    }
+    public void MoveVertical()
+    {
+        _trans.position = new Vector3(_startingPos.x, _startingPos.y + Mathf.PingPong(Time.time, 3), _startingPos.z);
     }
     void IncreaseIndex()
     {
