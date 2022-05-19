@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayCalamar : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayCalamar : MonoBehaviour
      private float dist;
      public int speed;
      public bool isPatrollin;
+    public float rayLength;
+    public LayerMask layermask;
 
  
     Vector3 target;
@@ -39,7 +42,7 @@ public class PlayCalamar : MonoBehaviour
         Debug.Log("Calamar");
         audios.PlayCalamar();
     }
-    void Patrol()
+   /* void Patrol()
     {
         if (isPatrollin == true)
         {
@@ -47,13 +50,13 @@ public class PlayCalamar : MonoBehaviour
             Debug.Log("IT MOVES");
         }
 
-    }
+    }*/
     void DontPatrol()
     {
         transform.Translate(Vector3.forward * 0 * Time.deltaTime);
         Debug.Log("troste");
     }
-    void IncreaseIndex()
+   /* void IncreaseIndex()
     {
         waypointIndex++;
         if (waypointIndex >= waypoints.Length)
@@ -61,7 +64,7 @@ public class PlayCalamar : MonoBehaviour
             waypointIndex = 0;
         }
         transform.LookAt(waypoints[waypointIndex].position);//error index outside bounds of array preguntar.
-    }
+    }*/
     public void LimitAction()
     {
         _move._speed = 0;
@@ -87,6 +90,7 @@ public class PlayCalamar : MonoBehaviour
         if(isPatrollin==true)
         {
             MoveVertical();
+            Debug.Log("WUWUW");
         }
         
     }
@@ -98,18 +102,23 @@ public class PlayCalamar : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("ya hizo click");
             RaycastHit hit;
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if ((Physics.Raycast(ray, out hit, 100.0f)))
+            if ((Physics.Raycast(ray, out hit,100.0f)))
             {
-                if (hit.transform != null)
+                Debug.Log("raycast");
+                if (hit.transform!=null)
                 {
+                    Debug.Log("es nulo");
                     animator.SetBool("semueve", true);
                     Debug.Log("Calamar camina"); 
                     SquidNarration();
-                   
-                     isPatrollin = true;
+
+                   isPatrollin = true;
+
+
                 }
             }
         }

@@ -128,13 +128,13 @@ public class scriptTar : MonoBehaviour
         }
     }
 
-    void ClearImage()
+   /* void ClearImage()
     {
         //Quita la referencia a la imagen y pone el aplha en su minimo
         slot.sprite = null;
         Color clr = slot.color;
         clr.a = 0f;
         slot.color = clr;
-    }
+    }*/
 
 }

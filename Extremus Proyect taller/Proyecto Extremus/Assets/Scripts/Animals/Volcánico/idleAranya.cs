@@ -120,10 +120,10 @@ public class idleAranya : MonoBehaviour
                     isPatrollin = true;
 
                     //Se asigna la imagen del animal y se pone el alpha en su maximo
-                    slot.sprite = img;
-                    Color clr = slot.color;
-                    clr.a = 255f;
-                    slot.color = clr;
+                    //slot.sprite = img;
+                   // Color clr = slot.color;
+                    //clr.a = 255f;
+                    //slot.color = clr;
                     //Funcion para limpiar el slot de la imagen despues de [tiempoDesaparicion] segudos
                     Invoke("ClearImage", tiempoDesaparicion);
 

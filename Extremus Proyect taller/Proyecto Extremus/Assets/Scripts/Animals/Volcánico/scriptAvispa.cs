@@ -91,9 +91,9 @@ public class scriptAvispa : MonoBehaviour
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit,100.0f))
+            if (Physics.Raycast(ray, out hit,50.0f))
             {
-                if (hit.transform!=null)
+                if (hit.transform.tag=="avispa")
                 {
                     Debug.Log("La araña camina");
                     animator.SetBool("semueve", true);
