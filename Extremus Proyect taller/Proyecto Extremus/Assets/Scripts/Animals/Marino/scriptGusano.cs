@@ -92,7 +92,7 @@ public class scriptGusano : MonoBehaviour
                     isPatrollin = true;
 
                     //Se invoca la muestra de image despues de a duracion del clip
-                    Invoke("DisplayImage", animClip.length);
+                    Invoke("DisplayImage", animClip.length+0.5f);
                 }
             }
         }

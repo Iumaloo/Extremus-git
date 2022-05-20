@@ -25,8 +25,8 @@ public class PlayCalamar : MonoBehaviour
      private float dist;
      public int speed;
      public bool isPatrollin;
-    public float rayLength;
-    public LayerMask layermask;
+  /*  public float rayLength;
+    public LayerMask layermask;*/
 
  
     Vector3 target;
@@ -36,8 +36,7 @@ public class PlayCalamar : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        //waypointIndex = 0;
-        //transform.LookAt(waypoints[waypointIndex].position);
+      
         isPatrollin = false;
         _trans = GetComponent<Transform>();
         _startingPos = _trans.position;
@@ -49,29 +48,8 @@ public class PlayCalamar : MonoBehaviour
         Debug.Log("Calamar");
         audios.PlayCalamar();
     }
-   /* void Patrol()
-    {
-        if (isPatrollin == true)
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            Debug.Log("IT MOVES");
-        }
-
-    }*/
-    void DontPatrol()
-    {
-        transform.Translate(Vector3.forward * 0 * Time.deltaTime);
-        Debug.Log("troste");
-    }
-   /* void IncreaseIndex()
-    {
-        waypointIndex++;
-        if (waypointIndex >= waypoints.Length)
-        {
-            waypointIndex = 0;
-        }
-        transform.LookAt(waypoints[waypointIndex].position);//error index outside bounds of array preguntar.
-    }*/
+ 
+  
     public void LimitAction()
     {
         _move._speed = 0;
@@ -80,21 +58,12 @@ public class PlayCalamar : MonoBehaviour
     }
     void Update()
     {
-       /* transform.localEulerAngles = new Vector3(0, 0, 0);
         if (!audios.myAudio.isPlaying)
         {
             Debug.Log("Paró narración");
             ClickAction();
         }
-
-        if (dist < 1f)
-        {
-            IncreaseIndex();
-        }
-        dist = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-        //con bools
-        Patrol();*/
-        if(isPatrollin==true)
+        if (isPatrollin==true)
         {
             MoveVertical();
             Debug.Log("WUWUW");
@@ -109,15 +78,21 @@ public class PlayCalamar : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("ya hizo click");
+         
+            Debug.Log("ya hizo click al pulpooo");
             RaycastHit hit;
+            
             //Ray goes through camera to position in the world the mouse points
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-            if ((Physics.Raycast(ray, out hit,100.0f)))
+           
+            if (Physics.Raycast(ray, out hit, 50.0f))
             {
-                Debug.Log("raycast");
-                if (hit.transform!=null)
+                Debug.Log("hit name:"+ hit.transform.name);
+                Debug.Log("raycast fffff");
+                if (hit.transform.tag == "pulpo")
                 {
+                    
+                    isPatrollin = true;
                     Debug.Log("es nulo");
                     animator.SetBool("semueve", true);
                     Debug.Log("Calamar camina"); 
@@ -126,7 +101,7 @@ public class PlayCalamar : MonoBehaviour
                     //Se invoca la muestra de image despues de a duracion del clip
                     Invoke("DisplayImage", animClip.length);
 
-                    isPatrollin = true;
+                 
 
 
                 }
