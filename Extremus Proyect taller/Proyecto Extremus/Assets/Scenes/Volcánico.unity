@@ -2705,16 +2705,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   audio: {fileID: 0}
-  waypoints: []
-  speed: 0
+  waypoints:
+  - {fileID: 1403345891}
+  - {fileID: 1178163982}
+  speed: 2
   isPatrollin: 0
   rotateSmooth: {fileID: 2134789475}
   _move: {fileID: 2134789476}
   _rotate: {fileID: 2134789475}
-  slot: {fileID: 0}
-  img: {fileID: 0}
+  slot: {fileID: 2116097355}
+  img: {fileID: 21300000, guid: b94362f0ee46aa04591deff9cf801b63, type: 3}
   tiempoDesaparicion: 10
-  animClip: {fileID: 0}
+  animClip: {fileID: 7400000, guid: d71850d91a034cd43b792ffd2b69e813, type: 2}
 --- !u!114 &261194311
 MonoBehaviour:
   m_ObjectHideFlags: 0
