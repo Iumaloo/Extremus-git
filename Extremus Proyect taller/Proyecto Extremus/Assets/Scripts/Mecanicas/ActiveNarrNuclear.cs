@@ -21,7 +21,7 @@ public class ActiveNarrNuclear : MonoBehaviour
     public void NucNarr()
     {
         isTalking = true;
-        Debug.Log("Empieza Narración");
+        Debug.Log("Empieza Narración Nuclear");
         audio.PlayNucl();
 
     }
