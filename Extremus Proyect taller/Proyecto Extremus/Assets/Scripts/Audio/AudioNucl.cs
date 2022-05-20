@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using System;
 
 public class AudioNucl : MonoBehaviour
 {
@@ -66,6 +68,13 @@ public class AudioNucl : MonoBehaviour
     public void PlayC()
     {
         myAudio.PlayOneShot(narrCucaracha);
+    }
+    public void CheckSound()
+    {
+        if (!myAudio.isPlaying)
+        {
+            isYellin = false;
+        }
     }
 }
 
